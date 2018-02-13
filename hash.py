@@ -95,6 +95,13 @@ class Match():
 
 	def shot(self):
 		shot = input("Give your shot: ")
+		if shot.isdigit() == False:
+			print("Give a number. ", end="")
+			return self.shot()
+		else:
+			if int(shot) > 8 or int(shot) < 0:
+				print("Choose an integer between 0 and 8. ", end="")
+				return self.shot()
 		if self.array[int(shot)] == 'o' or self.array[int(shot)] == 'x':
 			print("Invalid shot. ", end="")
 			return self.shot()
